@@ -19,7 +19,7 @@ public class Main {
             ? true
             : Boolean.parseBoolean(args[1]);
 
-        int[] numeros = AdquisitorDeNumeros.adquirirEnterosDesdeArchivo(dir, dirEsAbsoluto);
+        int[] numeros = AdquisidorDeNumeros.adquirirEnterosDesdeArchivo(dir, dirEsAbsoluto);
         int sumatoria = Sumatoria.sumatoriaDeEnteros(numeros);
 
         System.out.println(sumatoria);
