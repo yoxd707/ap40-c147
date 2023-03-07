@@ -16,13 +16,13 @@ public class Main {
             ? "src/main/resources/numeros.txt"
             : args[0];
 
-        boolean dirEsAbsoluto = (args.length < 2)
-            ? false
-            : Boolean.parseBoolean(args[1]);
+        boolean dirEsAbsoluto = (args.length > 1)
+            ? Boolean.parseBoolean(args[1])
+            : true;
 
-        String operacion = (args.length < 3)
-            ? "sum"
-            : args[2];
+        String operacion = (args.length > 2)
+            ? args[2]
+            : "sum";
 
         int[] numeros = AdquisidorDeNumeros.adquirirEnterosDesdeArchivo(dir, dirEsAbsoluto);
         int resultado = operacion.equals("sum")
