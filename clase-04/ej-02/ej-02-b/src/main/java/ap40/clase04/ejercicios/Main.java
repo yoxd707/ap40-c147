@@ -16,11 +16,11 @@ public class Main {
             ? "src/main/resources/numeros.txt"
             : args[0];
 
-        boolean dirEsAbsoluto = (args.length < 2)
+        boolean dirEsAbsoluto = (args.length > 1)
             ? true
             : Boolean.parseBoolean(args[1]);
 
-        String operacion = (args.length < 3)
+        String operacion = (args.length > 2)
             ? "sum"
             : args[2];
 
