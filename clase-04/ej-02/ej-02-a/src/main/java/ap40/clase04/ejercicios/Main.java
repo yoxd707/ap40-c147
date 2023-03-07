@@ -16,7 +16,7 @@ public class Main {
             : args[0];
 
         boolean dirEsAbsoluto = (args.length < 2)
-            ? true
+            ? false
             : Boolean.parseBoolean(args[1]);
 
         int[] numeros = AdquisidorDeNumeros.adquirirEnterosDesdeArchivo(dir, dirEsAbsoluto);

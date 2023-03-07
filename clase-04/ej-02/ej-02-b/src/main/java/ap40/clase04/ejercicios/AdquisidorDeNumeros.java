@@ -9,8 +9,8 @@ public class AdquisidorDeNumeros {
 
     public static int[] adquirirEnterosDesdeArchivo(String dir, boolean dirEsAbsoluto) throws IOException {
         Path path = dirEsAbsoluto
-            ? Paths.get(dir).toAbsolutePath()
-            : Paths.get(dir);
+            ? Paths.get(dir)
+            : Paths.get(dir).toAbsolutePath();
 
         String[] datos = Files.readString(path)
             .replace('\n', ' ')
