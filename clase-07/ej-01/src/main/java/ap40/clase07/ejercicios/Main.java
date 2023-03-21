@@ -17,12 +17,12 @@ public class Main {
             ? "src/main/resources/carrito.csv"
             : args[0];
 
-        DescuentoTipos descTipo = args.length > 0
+        DescuentoTipos descTipo = args.length > 1
             ? DescuentoTipos.valueOf(args[1].toUpperCase())
             : DescuentoTipos.SIN;
 
-        float descValor = args.length > 1
-            ? Float.parseFloat(args[2]) / 100f
+        float descValor = args.length > 2
+            ? Float.parseFloat(args[2])
             : 0f;
 
         Path path = Paths.get(dir).toAbsolutePath();
@@ -34,7 +34,7 @@ public class Main {
         Descuento descuento = null;
 
         if (descTipo.equals(DescuentoTipos.FIJO)) descuento = new DescuentoFijo(descValor);
-        if (descTipo.equals(DescuentoTipos.PORCENTUAL)) descuento = new DescuentoPorcentaje(descValor);
+        if (descTipo.equals(DescuentoTipos.PORCENTUAL)) descuento = new DescuentoPorcentaje(descValor / 100f);
 
         System.out.println(carrito.precio(descuento));
     }

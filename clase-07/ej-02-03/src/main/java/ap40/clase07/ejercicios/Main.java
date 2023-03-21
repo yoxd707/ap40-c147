@@ -20,15 +20,15 @@ public class Main {
             ? "src/main/resources/carrito.csv"
             : args[0];
 
-        DescuentoTipos descTipo = args.length > 0
+        DescuentoTipos descTipo = args.length > 1
             ? DescuentoTipos.valueOf(args[1].toUpperCase())
             : DescuentoTipos.SIN;
 
-        float descValor = args.length > 1
-            ? Float.parseFloat(args[2]) / 100f
+        float descValor = args.length > 2
+            ? Float.parseFloat(args[2])
             : 0f;
 
-        float descTope = args.length > 2
+        float descTope = args.length > 3
             ? Float.parseFloat(args[3])
             : 0f;
 
@@ -41,8 +41,8 @@ public class Main {
         Descuento descuento = null;
 
         if (descTipo.equals(DescuentoTipos.FIJO)) descuento = new DescuentoFijo(descValor);
-        if (descTipo.equals(DescuentoTipos.PORCENTUAL)) descuento = new DescuentoPorcentaje(descValor);
-        if (descTipo.equals(DescuentoTipos.PORCENTUAL_CON_TOPE)) descuento = new DescuentoPorcentajeConTope(descValor, descTope);
+        if (descTipo.equals(DescuentoTipos.PORCENTUAL)) descuento = new DescuentoPorcentaje(descValor / 100f);
+        if (descTipo.equals(DescuentoTipos.PORCENTUAL_CON_TOPE)) descuento = new DescuentoPorcentajeConTope(descValor / 100f, descTope);
 
         System.out.println(carrito.precio(descuento));
     }
